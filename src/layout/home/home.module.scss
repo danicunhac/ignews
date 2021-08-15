@@ -15,6 +15,10 @@
   > span {
     font-size: 1.5rem;
     font-weight: bold;
+
+    strong {
+      color: var(--cyan-500);
+    }
   }
 
   h1 {
