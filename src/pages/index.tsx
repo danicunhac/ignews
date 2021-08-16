@@ -1,12 +1,12 @@
 import { Home, HomeProps } from "@/layout/home";
 import { stripe } from "@/services/stripe";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 
 export default function HomePage({ name, product }: HomeProps) {
   return <Home name={name} product={product} />;
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve("price_1JOirqEByQu4eqvnmcItOVKU");
 
   const product = {
@@ -22,5 +22,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
       name: "Daniel",
       product,
     },
+    revalidate: 3600 * 24, // 24 hours
   };
 };
