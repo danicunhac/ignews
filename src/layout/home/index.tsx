@@ -3,6 +3,7 @@ import Head from "next/head";
 import { SubscribeButton } from "@/common";
 
 import styles from "./home.module.scss";
+import { useSession } from "next-auth/client";
 
 export type HomeProps = {
   name: string;
@@ -13,6 +14,8 @@ export type HomeProps = {
 };
 
 export const Home = ({ name, product }: HomeProps) => {
+  const [session] = useSession();
+
   return (
     <>
       <Head>
@@ -21,7 +24,7 @@ export const Home = ({ name, product }: HomeProps) => {
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
           <span>
-            👏 Hey, welcome <strong>{name}!</strong>
+            👏 Hey, welcome <strong>{session?.user.name}!</strong>
           </span>
           <h1>
             News about <br /> the <span>React</span> world.
