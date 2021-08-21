@@ -1,8 +1,8 @@
-import { Header } from "@/common";
-import { AppProps } from "next/app";
-import { Provider as NextAuthProvider } from "next-auth/client";
+import { Header } from '@/common'
+import { AppProps } from 'next/app'
+import { Provider as NextAuthProvider } from 'next-auth/client'
 
-import "@/styles/global.scss";
+import '@/styles/global.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Header />
       <Component {...pageProps} />
     </NextAuthProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

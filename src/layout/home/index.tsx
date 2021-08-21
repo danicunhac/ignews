@@ -1,20 +1,19 @@
-import Head from "next/head";
+import Head from 'next/head'
 
-import { SubscribeButton } from "@/common";
+import { SubscribeButton } from '@/common'
 
-import styles from "./home.module.scss";
-import { useSession } from "next-auth/client";
+import styles from './home.module.scss'
+import { useSession } from 'next-auth/client'
 
 export type HomeProps = {
-  name: string;
   product: {
-    priceId: string;
-    amount: number;
-  };
-};
+    priceId: string
+    amount: number
+  }
+}
 
-export const Home = ({ name, product }: HomeProps) => {
-  const [session] = useSession();
+export const Home = ({ product }: HomeProps) => {
+  const [session] = useSession()
 
   return (
     <>
@@ -23,9 +22,11 @@ export const Home = ({ name, product }: HomeProps) => {
       </Head>
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
-          <span>
-            👏 Hey, welcome <strong>{session?.user.name}!</strong>
-          </span>
+          {session && (
+            <span>
+              👏 Hey, welcome <strong>{session.user.name}!</strong>
+            </span>
+          )}
           <h1>
             News about <br /> the <span>React</span> world.
           </h1>
@@ -38,5 +39,5 @@ export const Home = ({ name, product }: HomeProps) => {
         <img src="/images/avatar.svg" alt="Girl coding" />
       </main>
     </>
-  );
-};
+  )
+}
