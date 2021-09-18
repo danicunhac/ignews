@@ -24,7 +24,8 @@ export const Home = ({ product }: HomeProps) => {
         <section className={styles.hero}>
           {session && (
             <span>
-              👏 Hey, welcome <strong>{session.user.name}!</strong>
+              👏 Hey, welcome
+              <strong>{session.user.name}!</strong>
             </span>
           )}
           <h1>
