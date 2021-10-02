@@ -25,7 +25,7 @@ export const Home = ({ product }: HomeProps) => {
           {session && (
             <span>
               👏 Hey, welcome
-              <strong>{session.user.name}!</strong>
+              <strong> {session.user.name}!</strong>
             </span>
           )}
           <h1>
