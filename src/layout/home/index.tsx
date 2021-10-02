@@ -1,9 +1,7 @@
-import Head from 'next/head'
-
 import { SubscribeButton } from '@/common'
-
-import styles from './home.module.scss'
 import { useSession } from 'next-auth/client'
+import Head from 'next/head'
+import styles from './home.module.scss'
 
 export type HomeProps = {
   product: {
