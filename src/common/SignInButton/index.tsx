@@ -14,7 +14,10 @@ export function SignInButton() {
       className={styles.signInButton}
     >
       <FaGithub color="#04d361" />
-      {session.user.name}
+      <img
+        style={{ maxHeight: '80%', borderRadius: '50%' }}
+        src={session.user.image}
+      />
       <FiX color="#737380" className={styles.closeIcon} />
     </button>
   ) : (
